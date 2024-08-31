@@ -28,14 +28,20 @@ class HumanML3DDataModule(BASEDataModule):
         self.hparams.motion_dir = pjoin(data_root, 'new_joint_vecs')
         
         # Mean and std of the dataset
-        dis_data_root = pjoin(cfg.DATASET.HUMANML3D.MEAN_STD_PATH, 't2m', "VQVAEV3_CB1024_CMT_H1024_NRES3", "meta")
-        self.hparams.mean = np.load(pjoin(dis_data_root, "mean.npy"))
-        self.hparams.std = np.load(pjoin(dis_data_root, "std.npy"))
+        # dis_data_root = pjoin(cfg.DATASET.HUMANML3D.MEAN_STD_PATH, 't2m', "VQVAEV3_CB1024_CMT_H1024_NRES3", "meta")
+        # self.hparams.mean = np.load(pjoin(dis_data_root, "mean.npy"))
+        # self.hparams.std = np.load(pjoin(dis_data_root, "std.npy"))
+        dis_data_root = cfg.DATASET.HUMANML3D.MEAN_STD_PATH
+        self.hparams.mean = np.load(pjoin(dis_data_root, "Mean.npy"))
+        self.hparams.std = np.load(pjoin(dis_data_root, "Std.npy"))
         
         # Mean and std for fair evaluation
-        dis_data_root_eval = pjoin(cfg.DATASET.HUMANML3D.MEAN_STD_PATH, 't2m', "Comp_v6_KLD01", "meta")
-        self.hparams.mean_eval = np.load(pjoin(dis_data_root_eval, "mean.npy"))
-        self.hparams.std_eval = np.load(pjoin(dis_data_root_eval, "std.npy"))
+        # dis_data_root_eval = pjoin(cfg.DATASET.HUMANML3D.MEAN_STD_PATH, 't2m', "Comp_v6_KLD01", "meta")
+        # self.hparams.mean_eval = np.load(pjoin(dis_data_root_eval, "mean.npy"))
+        # self.hparams.std_eval = np.load(pjoin(dis_data_root_eval, "std.npy"))
+        dis_data_root_eval = cfg.DATASET.HUMANML3D.MEAN_STD_PATH
+        self.hparams.mean_eval = np.load(pjoin(dis_data_root_eval, "Mean.npy"))
+        self.hparams.std_eval = np.load(pjoin(dis_data_root_eval, "Std.npy"))
         
         # Length of the dataset
         self.hparams.max_motion_length = cfg.DATASET.HUMANML3D.MAX_MOTION_LEN
@@ -73,8 +79,8 @@ class HumanML3DDataModule(BASEDataModule):
             self.Dataset = Text2MotionDataset
 
         # Get additional info of the dataset
-        self._sample_set = self.get_sample_set(overrides={"split": "test", "tiny": True})
-        self.nfeats = self._sample_set.nfeats
+        # self._sample_set = self.get_sample_set(overrides={"split": "test", "tiny": True})
+        self.nfeats = 263 # self._sample_set.nfeats
         cfg.DATASET.NFEATS = self.nfeats
         
         

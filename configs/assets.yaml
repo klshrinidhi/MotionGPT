@@ -16,7 +16,8 @@ DATASET:
   HUMANML3D:
     ROOT: datasets/humanml3d # HumanML3D directory
     SPLIT_ROOT: datasets/humanml3d # HumanML3D splits directory
-    MEAN_STD_PATH: deps/t2m/
+    MEAN_STD_PATH: datasets/humanml3d
+    # MEAN_STD_PATH: deps/t2m/
 
 METRIC:
   TM2T:

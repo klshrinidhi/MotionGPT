@@ -83,6 +83,7 @@ def main():
                     ckpt_path=cfg.TRAIN.PRETRAINED)
     else:
         trainer.fit(model, datamodule=datamodule)
+    # trainer.validate(model, datamodule=datamodule)
 
     # Training ends
     logger.info(

@@ -97,7 +97,7 @@ class TM2TMetrics(Metric):
 
         t2m_checkpoint = torch.load(os.path.join(
             cfg.METRIC.TM2T.t2m_path, dataname, "text_mot_match/model/finest.tar"),
-                                    map_location="cpu")
+                                    map_location="cpu",weights_only=False)
 
         self.t2m_textencoder.load_state_dict(t2m_checkpoint["text_encoder"])
         self.t2m_moveencoder.load_state_dict(

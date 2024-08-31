@@ -338,7 +338,7 @@ class MotionGPT(BaseModel):
             feats_pred, _, _ = self.vae(feats_ref[i:i + 1, :lengths[i]])
             feats_rst[i:i + 1, :feats_pred.shape[1], :] = feats_pred
 
-            code_pred, _ = self.vae.encode(feats_ref[i:i + 1, :lengths[i]])
+            # code_pred, _ = self.vae.encode(feats_ref[i:i + 1, :lengths[i]])
 
             # codeFre_pred = torch.bincount(code_pred[0],
             #                               minlength=self.hparams.codebook_size).to(
