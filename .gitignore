@@ -1,7 +1,7 @@
 *~
 __pycache__/
 .vscode/
-datasets/
-deps/
-pretrained_checkpoints/
-experiments/
+datasets
+deps
+pretrained_checkpoints
+experiments

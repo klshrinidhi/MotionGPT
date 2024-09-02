@@ -1,14 +1,14 @@
-NAME: VQVAE_HumanML3D_amass_smplx # Experiment names
+NAME: VQVAE_HumanML3D_amass_smplx2020 # Experiment names
 ACCELERATOR: 'gpu' # Devices optioncal: “cpu”, “gpu”, “tpu”, “ipu”, “hpu”, “mps, “auto”
 NUM_NODES: 1 # Number of GPU nodes for distributed training
-DEVICE: [0] # Index of gpus eg. [0] or [0,1,2,3]
+DEVICE: [0,1,2,3] # Index of gpus eg. [0] or [0,1,2,3]
 
 TRAIN:
   #---------------------------------
   STAGE: vae # stage "vae" , "lm_pretrain", "lm_instruct"
   #---------------------------------
   NUM_WORKERS: 8 # 16 # Number of workers
-  BATCH_SIZE: 4096 # 256 # Size of batches
+  BATCH_SIZE: 6144 # 256 # Size of batches
   END_EPOCH: 999999 # End epoch
   RESUME: '' # Resume training from this path
   PRETRAINED: '' # 'checkpoints/MotionGPT-base/motiongpt_s3_h3d.tar' # Preatrained model path
